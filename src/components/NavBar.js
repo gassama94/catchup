@@ -1,6 +1,6 @@
-import React from 'react'
+import React from 'react';
 import { Navbar, Container, Nav, NavDropdown} from "react-bootstrap";
-import logo from "../assets/Catch-up-logo.png"
+import logo from "../assets/Catch-up-logo.png";
 import styles from "../styles/NavBar.module.css";
 import { NavLink } from "react-router-dom";
 
