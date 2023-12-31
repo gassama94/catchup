@@ -8,15 +8,6 @@
   border: 1px solid #dadadf;
 }
 
-
-.ml-auto i {
-  color: #cfced3;
- 
-  font-size: 1.6rem;
-  padding: 7px;
-  vertical-align: middle;
-}
-
 .Loggo {
   font-family: 'Shadows into Light', sans-serif;
   font-weight: 700;
@@ -27,7 +18,9 @@
 }
 
 .Active i {
-  color: #010038;
+  /* color: #010038; */
+  color: #f4980a; 
+
 }
 
 .NavDropdown {
