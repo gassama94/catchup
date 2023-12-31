@@ -39,13 +39,16 @@ a {
 }
 
 a:hover {
+  color: #f4980a; 
   text-decoration: none;
 }
 
 a:hover i {
-
-  color: #010038;
+  
+color: #f4980a; 
+  /* color: #010038; */
   transition: color ease-in-out 0.3s;
+
 }
 
 input[type="file"] {
@@ -53,8 +56,7 @@ input[type="file"] {
 }
 
 i {
-  color: #cfced3;
-  /* color: #f4980a; */
+  color: #cfced3; 
   font-size: 1.6rem;
   padding: 7px;
   vertical-align: middle;
@@ -63,8 +65,9 @@ i {
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
-
-  color: #010038;
+  
+  color: #f4980a; 
+  /* color: #010038; */
 }
 
 figure {
