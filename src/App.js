@@ -5,6 +5,8 @@ import { Route, Switch } from "react-router-dom";
 import './api/axiosDefaults';
 import SignUpForm from "./pages/auth/SignUpForm";
 
+
+
 function App() {
   return (
     <div className={styles.App}>
