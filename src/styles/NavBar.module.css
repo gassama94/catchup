@@ -1,0 +1,35 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Rubik+Lines&family=Shadows+Into+Light&display=swap');
+
+
+.NavBar {
+  /* background-color: #ffffff; */
+  background-color: #6b6866;
+  border: 1px solid #dadadf;
+}
+
+
+.ml-auto i {
+  color: #cfced3;
+ 
+  font-size: 1.6rem;
+  padding: 7px;
+  vertical-align: middle;
+}
+
+.Loggo {
+  font-family: 'Shadows into Light', sans-serif;
+  font-weight: 700;
+}
+
+.NavLink {
+  padding: 5px;
+}
+
+.Active i {
+  color: #010038;
+}
+
+.NavDropdown {
+  color: black;
+}
