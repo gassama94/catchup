@@ -1,11 +1,11 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
+import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Badge, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import appStyles from "../../App.module.css";
 import { Link } from "react-router-dom";
-import { axiosRes } from "../../api/axiosDefaults";
 import Avatar from "../../components/Avatar";
+import { axiosRes } from "../../api/axiosDefaults";
 
 
 const Post = (props) => {
@@ -17,26 +17,32 @@ const Post = (props) => {
     comments_count,
     likes_count,
     like_id,
-    title,
     category,
+    title,
     excerpt,
-    content,
-    image,
     updated_at,
     postPage,
+    image,
     setPosts,
   } = props;
 
   const currentUser = useCurrentUser();
+  // Checks if it is the owner of the post before assigning
+  // it to the is_owner variable
   const is_owner = currentUser?.username === owner;
   
 
+  
 
-   // Function to capitalize first letter of category
+  // Function to capitalize first letter of category
   // displayed in a badge
   const capitalize = (str) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
+
+ 
+
+  
 
   // Function for liking posts
   const handleLike = async () => {
@@ -82,7 +88,6 @@ const Post = (props) => {
     }
   };
 
-
   return (
     <Card className={styles.Post}>
       <Card.Body>
@@ -91,12 +96,16 @@ const Post = (props) => {
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
-         
+          <div className="d-flex align-items-center ">
+            <span>{updated_at}</span>
+            {is_owner && postPage && "..."}
+          </div>
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
         <Card.Img src={image} alt={title} />
       </Link>
+      
       <Card.Body className={styles.PostBar}>
         {/* Only renders the elements <Card.Title> if the title data is present */}
 
@@ -106,33 +115,6 @@ const Post = (props) => {
               {title}
             </Card.Title>
           )}
-
-          {/* ... (existing like and comment logic) */}
-        {category && (
-          <h4 className="text-left">
-            <Badge pill variant="primary">
-              {capitalize(category)}
-            </Badge>
-          </h4>
-        )}
-        <hr />
-        {excerpt && <Card.Title>{excerpt}</Card.Title>}
-        {/* ... (existing comment count display) */}
-
-        {/* Display content if postPage is true */}
-        <hr></hr>
-        {postPage && (
-          <Card.Text className={styles.PostContent}>
-            {content}
-          </Card.Text>
-        )}
-
-        {/* Display updated_at date */}
-        {updated_at && (
-          <div className={styles.PostUpdated}>
-            <small>Last updated: {new Date(updated_at).toLocaleDateString()}</small>
-          </div>
-        )}
 
           {/* Start of ternary/conditional statement for likes */}
           <div>
@@ -169,9 +151,17 @@ const Post = (props) => {
             {likes_count}
           </div>
         </div>
+        {category && (
+          <h4 className="text-left">
+            <Badge pill variant="primary">
+              {capitalize(category)}
+            </Badge>
+          </h4>
+        )}
+
         <hr />
         <div className={styles.HeartIcon}>
-          {/* {excerpt && <Card.Title>{excerpt}</Card.Title>} */}
+          {excerpt && <Card.Title>{excerpt}</Card.Title>}
           <div>
             <Link to={`/posts/${id}`}>
               <i className="far fa-comments" />
@@ -179,11 +169,9 @@ const Post = (props) => {
             {comments_count}
           </div>
         </div>
-       
       </Card.Body>
     </Card>
   );
 };
-   
 
 export default Post;

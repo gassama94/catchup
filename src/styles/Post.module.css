@@ -1,10 +1,27 @@
 .Post {
   background-color: #ffffff;
   border: 1px solid #dadadf;
-  border-radius: 2px;
+  border-radius: 25px;
   margin-bottom: 16px;
   text-align: center;
 }
+
+.PostBar {
+  /* background-color: #7e7e83; */
+  background-color: #010038;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+  color: #ffffff;
+}
+
+hr {
+  border-color: #ffffff;
+}
+
+.Link {
+  color: #010038;
+}
+
 
 .Post figure,
 h5 {
@@ -23,3 +40,6 @@ h5 {
   color: #f85032;
 }
 
+.date{
+  background-color: #010038;
+}
