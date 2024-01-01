@@ -1,11 +1,14 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
-import appStyles from "../../App.module.css";
+// import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Badge, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
+import { MoreDropdown } from "../../components/MoreDropdown";
+import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 
 const Post = (props) => {
@@ -24,12 +27,19 @@ const Post = (props) => {
     postPage,
     image,
     setPosts,
+    content,
   } = props;
 
   const currentUser = useCurrentUser();
   // Checks if it is the owner of the post before assigning
   // it to the is_owner variable
   const is_owner = currentUser?.username === owner;
+
+
+  const history = useHistory();
+  const location = useLocation();
+
+
   
 
   
@@ -40,9 +50,27 @@ const Post = (props) => {
     return str.charAt(0).toUpperCase() + str.slice(1);
   };
 
- 
 
-  
+  // Function to redirect users to the edit form page
+  const handleEdit = () => {
+    history.push(`/posts/${id}/edit`);
+  };
+
+  const handleDelete = async () => {
+    try {
+      await axiosRes.delete(`/posts/${id}/`);
+
+      if (location.pathname.indexOf("/posts/") === 0) {
+        history.push("/");
+      } else {
+        window.location.reload();
+      }
+    } catch (error) {
+      // console.log(error);
+    }
+  };
+
+
 
   // Function for liking posts
   const handleLike = async () => {
@@ -96,10 +124,16 @@ const Post = (props) => {
             <Avatar src={profile_image} height={55} />
             {owner}
           </Link>
+
           <div className="d-flex align-items-center ">
             <span>{updated_at}</span>
-            {is_owner && postPage && "..."}
+            {is_owner && postPage && ( 
+            <MoreDropdown
+                handleEdit={handleEdit}
+                handleDelete={handleDelete}
+            />)} 
           </div>
+          
         </Media>
       </Card.Body>
       <Link to={`/posts/${id}`}>
@@ -110,19 +144,16 @@ const Post = (props) => {
         {/* Only renders the elements <Card.Title> if the title data is present */}
 
         <div className={styles.HeartIcon}>
-          {title && (
-            <Card.Title className={`text-center ${appStyles.ProfileHeader}`}>
-              {title}
-            </Card.Title>
-          )}
+        {title && <Card.Title className="text-center">{title}</Card.Title>}
+         
 
           {/* Start of ternary/conditional statement for likes */}
           <div>
             {is_owner ? (
               // Displays a message if it's the owner of the post
               <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>You cant like your own post!</Tooltip>}
+              placement="top"
+              overlay={<Tooltip>You cant like your own post!</Tooltip>}
               >
                 <i className="far fa-heart" />
               </OverlayTrigger>
@@ -141,8 +172,8 @@ const Post = (props) => {
             ) : (
               // This message is for the user who is not logged in
               <OverlayTrigger
-                placement="top"
-                overlay={<Tooltip>Log in to like posts!</Tooltip>}
+              placement="top"
+              overlay={<Tooltip>Log in to like posts!</Tooltip>}
               >
                 <i className="far fa-heart" />
               </OverlayTrigger>
@@ -162,6 +193,8 @@ const Post = (props) => {
         <hr />
         <div className={styles.HeartIcon}>
           {excerpt && <Card.Title>{excerpt}</Card.Title>}
+          <hr></hr>
+        {content && <Card.Text>{content}</Card.Text>}
           <div>
             <Link to={`/posts/${id}`}>
               <i className="far fa-comments" />

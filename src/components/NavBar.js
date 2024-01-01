@@ -99,20 +99,69 @@ const NavBar = () => {
           Catch-Up
         </h4>
         <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Travel</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Opinion</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Style</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.1">Health</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Science</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Cultuure</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Technology</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Politics</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Buisiness</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Design</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
+             
+              <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/world">
+              World
+            </NavLink>
+          </NavDropdown.Item>
+
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/environment">
+              Environment
+            </NavLink>
+          </NavDropdown.Item>
+
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/technology">
+              Technology
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/design">
+              Design
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/culture">
+              Culture
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/business">
+              Business
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/politics">
+              Politics
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/opinion">
+              Opinion
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/science">
+              Science
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/health">
+              Health
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/style">
+              Style
+            </NavLink>
+          </NavDropdown.Item>
+          <NavDropdown.Item>
+            <NavLink className={styles.NavDropdown} to="/category/travel">
+              Travel
+            </NavLink>
+          </NavDropdown.Item>
             </NavDropdown>
             {currentUser && addPostIcon}
         <Navbar.Toggle  
