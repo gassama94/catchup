@@ -4,13 +4,16 @@
 
 .NavBar {
   /* background-color: #ffffff; */
-  background-color: #6b6866;
+  /* background-color: #6b6866; */
+  background-color: #010038;
   border: 1px solid #dadadf;
 }
 
 .Loggo {
   font-family: 'Shadows into Light', sans-serif;
   font-weight: 700;
+  border: 1px solid #dadadf;
+  padding: 5px;
 }
 
 .NavLink {

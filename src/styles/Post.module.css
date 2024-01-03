@@ -42,3 +42,7 @@ h5 {
   color: #f85032;
 }
 
+.custom-badge {
+  background-color: #010038; /* Replace with your color */
+  color: white;
+}

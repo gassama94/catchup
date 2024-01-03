@@ -184,7 +184,7 @@ const Post = (props) => {
         </div>
         {category && (
           <h4 className="text-left">
-            <Badge pill variant="primary">
+            <Badge pill className="custom-badge" style={{ backgroundColor: '#010038', color: '#appropriateTextColor', padding: '10px' }}>
               {capitalize(category)}
             </Badge>
           </h4>
@@ -192,7 +192,7 @@ const Post = (props) => {
 
         <hr />
         <div className={styles.HeartIcon}>
-          {excerpt && <Card.Title>{excerpt}</Card.Title>}
+          {excerpt && <Card.Title >{excerpt}</Card.Title>}
           <hr></hr>
         {content && <Card.Text>{content}</Card.Text>}
           <div>
