@@ -184,7 +184,7 @@ const Post = (props) => {
         </div>
         {category && (
           <h4 className="text-left">
-            <Badge pill className="custom-badge" style={{ backgroundColor: '#010038', color: '#appropriateTextColor', padding: '10px' }}>
+            <Badge pill className="custom-badge" style={{ backgroundColor: '#f4890a', color: '#appropriateTextColor', padding: '10px' }}>
               {capitalize(category)}
             </Badge>
           </h4>

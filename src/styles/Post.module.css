@@ -1,23 +1,24 @@
 .Post {
   background-color: #ffffff;
   /* border: 1px solid #dadadf; */
-  border: 1px solid #f4890a;
+  border: 1px solid #010038;
   border-radius: 26px;
   margin-bottom: 16px;
   text-align: center;
 }
 
 .PostBar {
-  background-color: #7e7e83;
+  /* background-color: #dadada; */
   /* background-color: #010038; */
   /* background-color: #f4890a; */
   border-bottom-right-radius: 25px;
   border-bottom-left-radius: 25px;
-  color: #ffffff;
+  color: #010038;
 }
 
 hr {
-  border-color: #ffffff;
+  /* border-color: #ffffff; */
+  border-color: #f4890a;
 }
 
 .Link {
