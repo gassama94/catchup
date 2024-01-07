@@ -90,7 +90,12 @@ const NavBar = () => {
   );
   
   return (
-    <Navbar expanded={expanded} className={styles.NavBar}  expand="md" fixed='top'>
+    <Navbar 
+    bg="dark"
+    variant="dark"
+    expanded={expanded} 
+    className={styles.NavBar}  expand="md" 
+    fixed='top'>
       <Container>
       <NavLink to="/">
         <Navbar.Brand > <img src={logo}  alt="logo" height="50" /></Navbar.Brand>
@@ -98,7 +103,7 @@ const NavBar = () => {
         <h4 className={`${styles.Loggo} mr-3 mt-1`} style={{ color: "white" }} >
           Catch-Up
         </h4>
-        <NavDropdown title="Categories" id="basic-nav-dropdown">
+        <NavDropdown className="custom-dropdown" title="Categories" id="basic-nav-dropdown">
              
               <NavDropdown.Item>
             <NavLink className={styles.NavDropdown} to="/category/world">
@@ -165,6 +170,7 @@ const NavBar = () => {
             </NavDropdown>
             {currentUser && addPostIcon}
         <Navbar.Toggle  
+        
           ref={ref}
           onClick={() => setExpanded(!expanded)} 
           aria-controls="basic-navbar-nav" />
