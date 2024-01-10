@@ -9,8 +9,8 @@ import Alert from "react-bootstrap/Alert";
 import Image from "react-bootstrap/Image";
 
 
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
 
 
 import Asset from "../../components/Asset";
@@ -41,33 +41,33 @@ function PostCreateForm() {
   const history = useHistory();
 
   // Toolbar options module for React Quill editor
-  var toolbarOptions = [
-    [{ header: "1" }, { header: "2" }, { font: [] }],
-    [{ size: [] }],
-    ["bold", "italic", "underline", "strike", "blockquote"],
-    [
-      { list: "ordered" },
-      { list: "bullet" },
-      { indent: "-1" },
-      { indent: "+1" },
-    ],
-    ["link", "video"],
-    ["clean"],
-  ];
-  const module = {
-    toolbar: toolbarOptions,
-  };
+  // var toolbarOptions = [
+  //   [{ header: "1" }, { header: "2" }, { font: [] }],
+  //   [{ size: [] }],
+  //   ["bold", "italic", "underline", "strike", "blockquote"],
+  //   [
+  //     { list: "ordered" },
+  //     { list: "bullet" },
+  //     { indent: "-1" },
+  //     { indent: "+1" },
+  //   ],
+  //   ["link", "video"],
+  //   ["clean"],
+  // ];
+  // const module = {
+  //   toolbar: toolbarOptions,
+  // };
 
-   // Function for React Quill onChange attribute
-  // Matches value to content
-  const handleChangeContent = (value) => {
-    setPostData((prev) => {
-      return {
-        ...prev,
-        content: value,
-      };
-    });
-  };
+  //  // Function for React Quill onChange attribute
+  // // Matches value to content
+  // const handleChangeContent = (value) => {
+  //   setPostData((prev) => {
+  //     return {
+  //       ...prev,
+  //       content: value,
+  //     };
+  //   });
+  // };
 
   const handleChange = (event) => {
     setPostData({
@@ -187,14 +187,14 @@ function PostCreateForm() {
       ))}
        <Form.Group>
         <Form.Label>Content</Form.Label>
-        <ReactQuill
+        {/* <ReactQuill
           modules={module}
           className={styles.QlContainer}
           theme="snow"
           value={content}
           onChange={handleChangeContent}
           placeholder={"A canvas for your thoughts..."}
-        />
+        /> */}
       </Form.Group>
       {errors?.content?.map((message, idx) => (
         <Alert variant="warning" key={idx}>
