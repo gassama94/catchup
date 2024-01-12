@@ -1,102 +1,202 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Catch-Up
 
-Welcome,
+Catch-Up is an innovative blogging platform where users can effortlessly share their experiences, reviews, and thoughts through text, images, and video links. The application is designed to categorize blogs for seamless navigation, offering a personalized and engaging user experience. Developed using Django REST Framework for the backend and React Js for the frontend, Catch-Up promises a responsive and contemporary user interface.
 
-This is the Code Institute student template for React apps on the Codeanywhere IDE. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.  
-DO NOT use this template if you are using the Gitpod IDE. Use the following command instead:  
-`npx create-react-app . --template git+https://github.com/Code-Institute-Org/cra-template-moments.git --use-npm`
+The essence of Catch-Up lies in its user-centric approach, encouraging users to freely express their thoughts on various subjects. Whether it's an adventure in a new country, a critique of the latest tech gadget, a fitness video tutorial, or daily musings, Catch-Up is the perfect space for sharing. Users can also follow others, like their posts, and keep themselves updated with the latest blogs in their interest areas.
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Codeanywhere and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **31st August, 2023**
+The platform's intuitive design allows users to easily navigate through categories, find interesting blogs, or discover new content. When no posts are available in a category, a friendly message guides the user back to the plethora of other content.
 
-## Codeanywhere Reminders
+Catch-Up also features detailed user profiles, showcasing the blogger's interests, number of followers, and their blogging journey. Each profile is a window into the user's world, with every blog they've posted available for readers to explore and enjoy.
 
-In Codeanywhere you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+For a detailed guide on the backend API of Catch-Up, please refer to our comprehensive documentation. To learn more about the React frontend, click [here](https://github.com/Shaf8808/project-portfolio-5/blob/main/frontend.md).
 
-To log into the Heroku toolbelt CLI:
+![Am I Responsive Image](docs/backend/images/am-i-responsive.png)
 
-1. Log in to your Heroku account and go to _Account Settings_ in the menu under your avatar.
-2. Scroll down to the _API Key_ and click _Reveal_
-3. Copy the key
-4. In Codeanywhere, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+<small><i>Image Source: [Am I Responsive?](https://ui.dev/amiresponsive)</i></small>
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+**Live Demo:** [Catch-Up Blogging Platform]()
 
----
+## Contents
 
-Happy coding!
+- [Catch-Up Overview](#catch-up)
+  * [Conceptualization](#conceptualization)
+  * [Data Structure](#data-structure)
+    + [Blog Post](#blog-post)
+    + [Blog Categories](#blog-categories)
+    + [User Comments](#user-comments)
+    + [User Connections](#user-connections)
+    + [Post Reactions](#post-reactions)
+    + [User Profiles](#user-profiles)
+  * [API Routes](#api-routes)
+  * [Technologies Stack and Dependencies](#technologies-stack-and-dependencies)
+  * [Quality Assurance](#quality-assurance)
+    + [Hands-on Testing](#hands-on-testing)
+    + [Automated Checks](#automated-checks)
+  * [Code Standards](#code-standards)
+  * [Addressed Issues](#addressed-issues)
+  * [Pending Challenges](#pending-challenges)
+  * [Project Deployment](#project-deployment)
+  * [Acknowledgments](#acknowledgments)
 
-# Getting Started with Create React App
+Generated with [TOC Generator](https://ecotrust-canada.github.io/markdown-toc/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Conceptualization
 
-## Available Scripts
+The journey of Catch-Up began with crafting user stories to define the functionality and aesthetic of the platform. By questioning what users would expect and desire from a blogging site, I could pinpoint the necessary features and design elements to incorporate.
 
-In the project directory, you can run:
+## Data Structure
 
-### `npm install`
+For data structure visualization, I used [DrawSQL](https://drawsql.app/) to create an organized and clear representation of the database schema, illustrating the interconnections between various data tables.
 
-Installs the required npm packages.
+Below are the custom data models tailored for Catch-Up:
 
-### `npm start`
+### Blog Post
 
-Runs the app in the development mode.\
-Open port 3000 to view it in the browser.
+Given that Catch-Up is primarily a blogging platform, the blog post model was customized to accommodate full-length blogs with embedded images and video URLs. Essential fields like 'excerpt' and 'category' were included to enhance the structure of each post.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Blog Categories
 
-### `npm test`
+To facilitate blog sorting, a dedicated 'Categories' model was implemented. This model connects to the blog posts, enabling each post to be associated with a specific category. The model was designed for simplicity and ease of integration.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### User Comments
 
-### `npm run build`
+The 'Comments' model allows users to engage with blog posts, providing spaces for posting, editing, and deleting comments. This interaction is vital for a lively community experience on the platform.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### User Connections
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+The 'Followers' model tracks the connections between users, defining who follows whom. This feature enriches the social aspect of Catch-Up, allowing users to cultivate their own community within the platform.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Post Reactions
 
-### `npm run eject`
+The 'Likes' model lets users express their appreciation for posts. This simple yet impactful feature enhances user interaction and provides valuable feedback to bloggers.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### User Profiles
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Each user's profile on Catch-Up is detailed with personal information, including a bio, avatar, and blogging history. This personal touch adds depth to the user experience and fosters a sense of community.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## API Routes
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+The table below outlines the various API endpoints and their corresponding functions:
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+| **Endpoint**           | **Description**                                                                                   | **Method** | **Operation**       | **Type**   |
+|------------------------|---------------------------------------------------------------------------------------------------|------------|---------------------|------------|
+| **Endpoints for Comments** |                                                                                                   |            |                     |            |
+| api/comments/          | Gathers all comments made by a user on a selected post                                           | GET        | Read                | List       |
+| api/comments/id/       | Allows modification or removal of a user's comment based on its unique ID and ownership or admin rights | PUT        | Update/Delete       | Detail     |
+| **Endpoints for Followers** |                                                                                                   |            |                     |            |
+| api/followers/         | Displays a list of all follower relationships, showing who follows whom                          | GET        | Read                | List       |
+| api/followers/id/      | Fetches or erases a specific follower connection based on ID, applicable to the profile owner    | GET/DELETE | Read/Delete         | Detail     |
+| **Endpoints for Likes** |                                                                                                   |            |                     |            |
+| api/likes/             | Lists all posts liked by a user                                                                   | GET        | Read                | List       |
+| api/likes/id/          | Removes a like from a post, identified by ID, if executed by the like owner                       | DELETE     | Delete              | Detail     |
+| **Endpoints for Posts** |                                                                                                   |            |                     |            |
+| api/posts/             | Lists all posts, focusing on those liked by the user                                              | GET        | Read                | List       |
+| api/posts/id/          | Provides, alters, or removes a post contingent on ID and user's ownership or administrative status | PUT        | Update/Delete       | Detail     |
+| **Endpoints for Profiles** |                                                                                                   |            |                     |            |
+| api/profiles/          | Enumerates all created user profiles                                                              | GET        | Read                | List       |
+| api/profiles/id/       | Retrieves, modifies, or deletes a user profile based on ID and ownership                          | PUT        | Update/Delete       | Detail     |
+| **Endpoints for Categories** |                                                                                                   |            |                     |            |
+| api/category/          | Enumerates all posts by category and allows for new post creation                                 | GET/POST   | Create/Read         | List       |
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Technology Stack and Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Catch-Up leverages the power and flexibility of Django and Django Rest Framework for its core development. This foundation is augmented with a variety of additional libraries and tools to enhance functionality and user experience:
 
-### Analyzing the Bundle Size
+- **django-cors-headers**: An essential Django application, it integrates Cross-Origin Resource Sharing (CORS) headers into server responses. This feature is crucial for allowing the API to handle requests from various origins, not limited to its own host. More details can be found [here](https://pypi.org/project/django-cors-headers/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **django-cloudinary-storage**: This tool is integrated for seamless image management, enabling the storage of user profile images on Cloudinary. This implementation ensures efficient and reliable image handling. Discover more at [django-cloudinary-storage](https://pypi.org/project/django-cloudinary-storage/).
 
-### Making a Progressive Web App
+- **dj-rest-auth**: It provides a set of REST API endpoints for authentication processes including login and logout operations, simplifying the authentication flow within the application. For further information, visit [dj-rest-auth](https://dj-rest-auth.readthedocs.io/en/latest/introduction.html).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **djangorestframework-simplejwt**: This library offers JSON Web Token authentication, adding an extra layer of security for the API. It ensures safe and secure user authentication. Learn more [here](https://django-rest-framework-simplejwt.readthedocs.io/en/latest/).
 
-### Advanced Configuration
+- **django-filter**: Utilized for its powerful filtering capabilities, especially in implementing ISO DateTime filtering for events' GET endpoints. This allows the application to efficiently handle date range queries. More on this can be found at [django-filter](https://django-filter.readthedocs.io/en/stable/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- **dj-database-url**: This library plays a critical role in configuring database connections through environment variables, thus streamlining the database setup process. It is particularly effective for managing different environments. Additional information is available [here](https://pypi.org/project/dj-database-url/).
 
-### Deployment
+- **psychopg2**: As a database adapter, it facilitates interactions between Python and PostgreSQL databases, ensuring smooth data handling and operations. More details can be found at [psychopg2](https://pypi.org/project/psycopg2/).
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Each of these tools and libraries has been carefully selected to ensure that Catch-Up delivers a robust, secure, and efficient user experience, aligning with the latest industry standards.
 
-### `npm run build` fails to minify
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Quality Assurance
+
+### Hands-on Testing
+
+I conducted extensive manual testing to ensure each API endpoint functioned as intended. This process involved using both the local server interface and the deployed database.
+
+### Automated Checks
+
+Automated tests were implemented to further validate the functionality, particularly for post creation and management. These tests, found in the `tests.py` file, simulate various user interactions and check for expected outcomes.
+
+## Code Standards
+
+All Python code was validated using the [CI Python Linter](https://pep8ci.herokuapp.com/) to ensure adherence to best practices and coding standards.
+
+## Addressed Issues
+
+During development, several challenges were overcome, including:
+
+- **Category Selection Bug**: Resolved by aligning frontend selection options with backend category values.
+- **Database Migration Hurdles**: Addressed by resetting and properly migrating the database.
+- **CSRF Token Issue**: Solved by adjusting the development environment settings.
+
+## Pending Challenges
+
+Currently, there are no unresolved issues in Catch-Up.
+
+## Project Deployment
+
+This guide will help you deploy the Bloggerize API to Heroku using a Postgres database through ElephantSQL and Cloudinary for hosting user profile images.
+
+## Steps for Deployment
+
+### 1. Fork or Clone Repository
+- Fork or clone this repository from GitHub.
+
+### 2. Set Up Cloudinary
+- Create a [Cloudinary account](https://cloudinary.com/users/register/free) for hosting user profile images.
+- Login to Cloudinary and select the 'Dashboard'.
+- Copy the 'API Environment variable' value starting from `cloudinary://`. You may need to select the eye icon to view the full environment variable.
+
+### 3. Heroku Setup
+- Login to [Heroku](https://www.heroku.com/).
+- Select 'Create new app' from the 'New' menu at the top right.
+- Enter an app name and select the appropriate region.
+- Click 'Create app'.
+
+### 4. ElephantSQL Database Setup
+- Login to [ElephantSQL](https://www.elephantsql.com/).
+- Click 'Create new instance'.
+- Name the plan and select the 'Tiny Turtle (free)' plan.
+- Choose the nearest data center to your location.
+- Click 'Review'.
+- In the ElephantSQL dashboard, click on the database instance name for this project.
+- Copy the ElephantSQL database URL (starts with `postgres://`).
+
+### 5. Configuring Heroku
+- In the Heroku dashboard, select the 'Settings' tab.
+- Under 'Config Vars', click 'Reveal Config Vars'.
+- Enter the following:
+  - `CLOUDINARY_URL`: Your Cloudinary URL.
+  - `DATABASE_URL`: Your ElephantSQL Postgres database URL.
+  - `SECRET_KEY`: A secret key of your choice.
+  - `ALLOWED_HOST`: The URL of your Heroku app (without `https://`).
+
+### 6. Deployment from GitHub
+- In Heroku, select the 'Deploy' tab.
+- Choose 'GitHub' as the deployment method and link your GitHub repository.
+- Under 'Manual Deploy', choose the 'main' branch and click 'Deploy Branch'.
+
+
+## Acknowledgments
+
+I extend my gratitude to various sources that inspired and guided the development of Catch-Up:
+
+- Example data models and blog structures from diverse online resources.
+- The Code Institute's Moments app tutorial for foundational learning.
+- My mentor, celestine okoro for invaluable insights and guidance.
+
+For further details, please refer to the [full acknowledgments section](gassamasaikou@yahoo.com).

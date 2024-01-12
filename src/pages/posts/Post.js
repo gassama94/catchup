@@ -3,12 +3,10 @@ import styles from "../../styles/Post.module.css";
 // import appStyles from "../../App.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { Badge, Card, Media, OverlayTrigger, Tooltip } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useHistory } from "react-router-dom";
 import Avatar from "../../components/Avatar";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
-import { useHistory } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 
 
 const Post = (props) => {
