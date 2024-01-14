@@ -8,13 +8,12 @@ The platform's intuitive design allows users to easily navigate through categori
 
 Catch-Up also features detailed user profiles, showcasing the blogger's interests, number of followers, and their blogging journey. Each profile is a window into the user's world, with every blog they've posted available for readers to explore and enjoy.
 
-For a detailed guide on the backend API of Catch-Up, please refer to our comprehensive documentation. To learn more about the React frontend, click [here](https://github.com/Shaf8808/project-portfolio-5/blob/main/frontend.md).
+For a detailed guide on the backend API of Catch-Up, please refer to our comprehensive documentation. To learn more about the React frontend, click [here](https://github.com/gassama94/drf-api).
 
-![Am I Responsive Image](docs/backend/images/am-i-responsive.png)
+![Am I Responsive Image](images/responsive.png)
 
-<small><i>Image Source: [Am I Responsive?](https://ui.dev/amiresponsive)</i></small>
 
-**Live Demo:** [Catch-Up Blogging Platform]()
+**Live Demo:** [Catch-Up Blogging Platform](https://catchupp-c89883ca1862.herokuapp.com/)
 
 ## Contents
 
@@ -49,6 +48,8 @@ The journey of Catch-Up began with crafting user stories to define the functiona
 For data structure visualization, I used [DrawSQL](https://drawsql.app/) to create an organized and clear representation of the database schema, illustrating the interconnections between various data tables.
 
 Below are the custom data models tailored for Catch-Up:
+
+![Diagram](images/diagram.png)
 
 ### Blog Post
 
@@ -118,6 +119,14 @@ Catch-Up leverages the power and flexibility of Django and Django Rest Framework
 
 - **psychopg2**: As a database adapter, it facilitates interactions between Python and PostgreSQL databases, ensuring smooth data handling and operations. More details can be found at [psychopg2](https://pypi.org/project/psycopg2/).
 
+- **I Am Responsive**: This is a tool that I used to ensure that the website is well-optimized for various devices. This tool helps in visually confirming that the website adapts to different screen sizes, which is crucial for a good user experience across smartphones, tablets, and desktops. More details can be found at [I Am Responsive](http://ami.responsivedesign.is/) 
+
+- **Coolors**:  For color scheme creation and ensuring good color contrast,  This tool is extremely helpful for designing an accessible and visually appealing interface. It provides a simple and effective way to check and create color contrasts and palettes.  [Coolors](https://coolors.co/).
+
+- **Axios** : Used for making HTTP requests. [Axios](https://axios-http.com/)
+- **FontAwesome**: Provides icons used in the project. [FontAwesome](https://fontawesome.com/)
+- **Cloudinary**: Hosts user profile images. [Cloudinary](https://cloudinary.com/)
+
 Each of these tools and libraries has been carefully selected to ensure that Catch-Up delivers a robust, secure, and efficient user experience, aligning with the latest industry standards.
 
 
@@ -142,6 +151,16 @@ During development, several challenges were overcome, including:
 - **Category Selection Bug**: Resolved by aligning frontend selection options with backend category values.
 - **Database Migration Hurdles**: Addressed by resetting and properly migrating the database.
 - **CSRF Token Issue**: Solved by adjusting the development environment settings.
+
+- **Avatar Image Display Issue**: Initially, the Avatar component was not displaying images correctly in certain contexts. This issue was addressed by:
+
+  1. **Ensuring Correct Image Path**: Verified and corrected the image source paths to ensure they were accurate and accessible, both in development and production environments.
+
+  2. **Implementing Fallback Mechanism**: Enhanced the Avatar component to include a fallback mechanism. When the primary image source fails (e.g., due to a broken link or if the image is not yet set for a new user), the component now defaults to a predefined image, ensuring that a user avatar is always displayed.
+
+  3. **Integration with React-Bootstrap Styles**: To maintain visual consistency with the rest of the application, the Avatar component was adapted to include React-Bootstrap's styling classes, ensuring that it aligns with the overall look and feel of the application.
+
+  4. **Testing and Validation**: Conducted thorough testing across different scenarios (valid image URL, invalid URL, no URL) to confirm the robustness of the Avatar component in handling image display and fallbacks.
 
 ## Pending Challenges
 
@@ -198,5 +217,12 @@ I extend my gratitude to various sources that inspired and guided the developmen
 - Example data models and blog structures from diverse online resources.
 - The Code Institute's Moments app tutorial for foundational learning.
 - My mentor, celestine okoro for invaluable insights and guidance.
+- The vibrant community on Slack for their support, feedback, and collaborative spirit.
+- ChatGPT by OpenAI for providing assistance with coding challenges and offering instant support.
+- Fellow students who shared their experiences, challenges, and solutions, contributing to a rich learning environment.
 
-For further details, please refer to the [full acknowledgments section](gassamasaikou@yahoo.com).
+---
+
+This addition to your README acknowledges the broad range of support and inspiration you received throughout the development of your project. It not only highlights professional guidance but also the value of community and AI tools in the learning and development process.
+
+For further details, please refer to the gassamasaikou@yahoo.com.
