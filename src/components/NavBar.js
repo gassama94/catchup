@@ -94,11 +94,16 @@ const NavBar = () => {
     bg="dark"
     variant="dark"
     expanded={expanded} 
-    className={styles.NavBar}  expand="md" 
+    className={styles.NavBar}  
+    expand="md" 
     fixed='top'>
       <Container>
+
       <NavLink to="/">
-        <Navbar.Brand > <img src={logo}  alt="logo" height="50" /></Navbar.Brand>
+        <Navbar.Brand > 
+          <img src={logo}  alt="logo" height="50" />
+          </Navbar.Brand>
+
         </NavLink>
         <h4 className={`${styles.Loggo} mr-3 mt-1`} style={{ color: "white" }} >
           Catch-Up
@@ -174,6 +179,7 @@ const NavBar = () => {
           ref={ref}
           onClick={() => setExpanded(!expanded)} 
           aria-controls="basic-navbar-nav" />
+          
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
             <NavLink
